@@ -4,27 +4,36 @@
     <title>Raina's Webpage</title>
     <style>
       body {
-        background-color: #ffd0d7; /* Updated background color */
+        background-color: #ffd0d7;
         font-family: 'Times New Roman', Times, serif;
         text-align: center;
       }
 
       h1 {
         font-size: 30px;
-        color: black; /* Set text color to black */
+        color: black;
       }
 
       img {
-        position: absolute;
-        top: 0;
-        left: 400px; /* Adjusted left position to 5 pixels */
         width: 100px;
         height: 100px;
+        position: absolute;
+        top: 0;
+      }
+
+      .bunny {
+        left: 400px; /* Adjusted left position for the bunny image */
+      }
+
+      .image {
+        right: 400px; /* Positioned on the opposite side of the bunny image */
       }
     </style>
   </head>
   <body>
     <h1>Raina's Webpage</h1>
-    <img src="bunny.jpg" alt="Bunny Image">
+    <img class="bunny" src="bunny.jpg" alt="Bunny Image">
+    <img class="image" src="image.jpg" alt="Image">
   </body>
 </html>
+
