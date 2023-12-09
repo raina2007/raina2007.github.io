@@ -4,21 +4,25 @@
     <title>Raina's Webpage</title>
     <style>
       body {
-        background-color: <iframe src="https://assets.pinterest.com/ext/embed.html?id=281543720567164" height="295" width="345" frameborder="0" scrolling="no" ></iframe>
-
-;
-        font-family: 'Times New Roman', Times, serif;
-        text-align: center;
+        margin: 0; /* Remove default margin */
+        overflow: hidden; /* Hide scroll bars */
       }
 
-      h1 {
-        font-size: 30px;
-        color: black;
+      iframe {
+        width: 100vw; /* Full width of the viewport */
+        height: 100vh; /* Full height of the viewport */
+        border: none; /* Remove iframe border */
       }
     </style>
   </head>
   <body>
-    <h1>Raina's Webpage</h1>
+    <iframe
+      src="https://assets.pinterest.com/ext/embed.html?id=281543720567164"
+      width="345"
+      height="295"
+      frameborder="0"
+      scrolling="no"
+    ></iframe>
   </body>
 </html>
 
