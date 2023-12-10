@@ -30,17 +30,18 @@
       }
 
       #defaultBlock {
-        display: table;
-        width: 100%;
-        margin-top: 20px; /* Added margin for spacing */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 50px; /* Added margin for spacing */
       }
 
       div {
-        float: left;
-        height: 470px;
-        width: 30%; /* Adjusted width for three columns */
+        flex: 0 0 30%; /* Adjusted width for three columns */
         padding: 10px;
         margin: 10px; /* Added margin for spacing */
+        text-align: center;
       }
 
       #block1 {
@@ -56,7 +57,6 @@
       }
 
       h2 {
-        text-align: center;
         color: white; /* Text color for column headings */
       }
     </style>
