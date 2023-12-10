@@ -28,12 +28,57 @@
       img.second {
         right: 400px; /* Positioned on the opposite side of the bunny image */
       }
+
+      #defaultBlock {
+        display: table;
+        width: 100%;
+        margin-top: 20px; /* Added margin for spacing */
+      }
+
+      div {
+        float: left;
+        height: 470px;
+        width: 30%; /* Adjusted width for three columns */
+        padding: 10px;
+        margin: 10px; /* Added margin for spacing */
+      }
+
+      #block1 {
+        background-color: #e6cedd; /* Color for the first column */
+      }
+
+      #block2 {
+        background-color: #f1bdc9; /* Color for the second column */
+      }
+
+      #block3 {
+        background-color: #e6ced1; /* Color for the third column */
+      }
+
+      h2 {
+        text-align: center;
+        color: white; /* Text color for column headings */
+      }
     </style>
   </head>
   <body>
     <h1>Raina's Webpage</h1>
     <img class="bunny" src="bunny.jpg" alt="Bunny Image">
-   <img class="second" src="Untitled_design-removebg-preview (1).png" alt="Second Image">
+    <img class="second" src="Untitled_design-removebg-preview (1).png" alt="Second Image">
+    
+    <main id="defaultBlock">
+      <div id="block1">
+        <h2>Title 1</h2>
+        Random Text
+      </div>
+      <div id="block2">
+        <h2>Title 2</h2>
+        Content
+      </div>
+      <div id="block3">
+        <h2>Title 3</h2>
+        Content
+      </div>
+    </main>
   </body>
 </html>
-
