@@ -24,57 +24,62 @@
       }
 
       .bunny {
-        left: 400px; /* Adjusted left position for the bunny image */
+        left: 400px;
       }
 
       img.second {
-        right: 400px; /* Positioned on the opposite side of the bunny image */
+        right: 400px;
       }
 
       #defaultBlock {
         display: table;
         width: 100%;
-        margin-top: 80px; /* Adjusted margin for moving the columns down */
+        margin-top: 80px;
       }
 
       div {
         float: left;
         height: 470px;
-        width: 30%; /* Adjusted width for three columns */
+        width: 30%;
         padding: 10px;
-        margin: 10px; /* Added margin for spacing */
+        margin: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
 
       #block1 {
-        background-color: #e6cedd; /* Color for the first column */
+        background-color: #e6cedd;
       }
 
       #block2 {
-        background-color: #f1bdc9; /* Color for the second column */
+        background-color: #f1bdc9;
       }
 
       #block3 {
-        background-color: #e6ced1; /* Color for the third column */
+        background-color: #e6ced1;
+        position: relative;
       }
 
       h2 {
         text-align: center;
-        color: white; /* Text color for column headings */
+        color: white;
       }
 
-      /* Style for the Google Calendar iframe */
       .calendar-widget {
-        width: 90%; /* Adjusted width for the calendar widget */
-        height: 600px; /* Adjusted height for the calendar widget */
+        width: 90%;
+        height: 600px;
       }
 
-      /* Style for the weather widget */
       .weather-widget {
         width: 216px;
         height: 420px;
+      }
+
+      /* Adjusted style for the p5.js sketch div */
+      #p5Canvas {
+        width: 100%;
+        height: 80%;
       }
     </style>
   </head>
@@ -86,24 +91,22 @@
     <main id="defaultBlock">
       <div id="block1">
         <h2>Google Calendar</h2>
-        <!-- Google Calendar Widget -->
         <iframe src="https://calendar.google.com/calendar/embed?src=raina.sarker%40student.tdsb.on.ca&ctz=America%2FToronto" frameborder="0" style="border: 0" class="calendar-widget"></iframe>
       </div>
       <div id="block2">
         <h2>Weather</h2>
-        <!-- Weather Widget -->
         <iframe src="https://www.meteoblue.com/en/weather/widget/daily/toronto_canada_6167865?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" class="weather-widget"></iframe>
-        <!-- Link to the website https://www.snig.digital -->
         <a href="https://www.snig.digital" target="_blank" class="website-link">Visit Snig Digital Website</a>
       </div>
       <div id="block3">
         <h2>p5.js Sketch</h2>
-        <!-- Include your p5.js script here -->
+        <!-- Adjusted p5.js script to fit inside the div -->
+        <div id="p5Canvas"></div>
         <script>
           let x, y;
 
           function setup() {
-            createCanvas(900, 900);
+            createCanvas(windowWidth * 0.3, windowHeight * 0.8).parent('p5Canvas');
             background(0);
             x = 0;
             y = 0;
@@ -112,45 +115,33 @@
           function draw() {
             for (let i = 0; i < 100; i++) {
               let r = random(100);
-
               let xNew, yNew;
 
-              // 1% of the time
               if (r < 1) {
                 x = 0;
                 yNew = 0.16 * y;
                 y = yNew;
-              }
-              // 85% of the time
-              else if (r < 86) {
+              } else if (r < 86) {
                 xNew = 0.85 * x + 0.04 * y;
                 yNew = -0.04 * x + 0.85 * y + 1.6;
                 x = xNew;
                 y = yNew;
-              }
-              // 8% of the time
-              else if (r < 94) {
+              } else if (r < 94) {
                 xNew = 0.2 * x - 0.26 * y;
                 yNew = 0.23 * x + 0.22 * y + 1.6;
                 x = xNew;
                 y = yNew;
-              }
-              // 6% of the time
-              else {
+              } else {
                 xNew = -0.15 * x + 0.28 * y;
                 yNew = 0.26 * x + 0.24 * y + 0.44;
                 x = xNew;
                 y = yNew;
               }
 
-              // Remove points outside given range
               if (x >= -2.1820 && x <= 2.6558 && y >= 0 && y <= 9.9983) {
-                // Map and scale points to fit the canvas
                 let px = map(x, -2.1820, 2.6558, 0, width);
                 let py = map(y, 0, 9.9983, height, 0);
-
-                // Draw the point
-                stroke(0, 255, 0); // Green color
+                stroke(0, 255, 0);
                 point(px, py);
               }
             }
