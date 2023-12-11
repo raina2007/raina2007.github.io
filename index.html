@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Raina's Webpage</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
     <style>
       body {
         background-color: #ffd0d7;
@@ -91,13 +93,69 @@
         <h2>Weather</h2>
         <!-- Weather Widget -->
         <iframe src="https://www.meteoblue.com/en/weather/widget/daily/toronto_canada_6167865?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" class="weather-widget"></iframe>
-      <!-- Link to the website https://www.snig.digital -->
-<a href="https://www.snig.digital" target="_blank" class="website-link">Visit Snig Digital Website</a>
-
+        <!-- Link to the website https://www.snig.digital -->
+        <a href="https://www.snig.digital" target="_blank" class="website-link">Visit Snig Digital Website</a>
       </div>
       <div id="block3">
-        <h2>Title 3</h2>
-        Content
+        <h2>p5.js Sketch</h2>
+        <!-- Include your p5.js script here -->
+        <script>
+          let x, y;
+
+          function setup() {
+            createCanvas(900, 900);
+            background(0);
+            x = 0;
+            y = 0;
+          }
+
+          function draw() {
+            for (let i = 0; i < 100; i++) {
+              let r = random(100);
+
+              let xNew, yNew;
+
+              // 1% of the time
+              if (r < 1) {
+                x = 0;
+                yNew = 0.16 * y;
+                y = yNew;
+              }
+              // 85% of the time
+              else if (r < 86) {
+                xNew = 0.85 * x + 0.04 * y;
+                yNew = -0.04 * x + 0.85 * y + 1.6;
+                x = xNew;
+                y = yNew;
+              }
+              // 8% of the time
+              else if (r < 94) {
+                xNew = 0.2 * x - 0.26 * y;
+                yNew = 0.23 * x + 0.22 * y + 1.6;
+                x = xNew;
+                y = yNew;
+              }
+              // 6% of the time
+              else {
+                xNew = -0.15 * x + 0.28 * y;
+                yNew = 0.26 * x + 0.24 * y + 0.44;
+                x = xNew;
+                y = yNew;
+              }
+
+              // Remove points outside given range
+              if (x >= -2.1820 && x <= 2.6558 && y >= 0 && y <= 9.9983) {
+                // Map and scale points to fit the canvas
+                let px = map(x, -2.1820, 2.6558, 0, width);
+                let py = map(y, 0, 9.9983, height, 0);
+
+                // Draw the point
+                stroke(0, 255, 0); // Green color
+                point(px, py);
+              }
+            }
+          }
+        </script>
       </div>
     </main>
   </body>
