@@ -77,10 +77,8 @@
       }
 
       #p5Canvas {
-        width: 5%; /* Adjusted width for the p5.js canvas */
-        height: 20%; /* Adjusted height for the p5.js canvas */
-        position: absolute;
-        top: 40px; /* Adjusted top position for the p5.js canvas */
+        width: 100%; /* Adjusted width for the p5.js canvas to fill the container */
+        height: 100%; /* Adjusted height for the p5.js canvas to fill the container */
       }
     </style>
   </head>
@@ -96,7 +94,7 @@
       </div>
       <div id="block2">
         <h2>Weather</h2>
-        <iframe src="https://www.meteoblue.com/en/weather/widget/daily/toronto_canada_6167865?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" class="weather-widget"></iframe>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/daily/toronto_canada_6167865?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&windirection=0&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" class="weather-widget"></iframe>
         <a href="https://www.snig.digital" target="_blank" class="website-link">Visit Snig Digital Website</a>
       </div>
       <div id="block3">
@@ -107,7 +105,7 @@
           let x, y;
 
           function setup() {
-          createCanvas(300,300);
+            createCanvas(300, 300);
             background(255, 255, 255);
             x = 0;
             y = 0;
