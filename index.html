@@ -104,6 +104,49 @@
         <!-- Adjusted p5.js script to fit inside the div -->
         <div id="p5Canvas"></div>
         <script>
+          let x, y;
+
+          function setup() {
+            createCanvas(350,350).parent('p5Canvas');
+            background(255,255,255);
+            x = 0;
+            y = 0;
+          }
+
+          function draw() {
+            for (let i = 0; i < 100; i++) {
+              let r = random(100);
+              let xNew, yNew;
+
+              if (r < 1) {
+                x = 0;
+                yNew = 0.16 * y;
+                y = yNew;
+              } else if (r < 86) {
+                xNew = 0.85 * x + 0.04 * y;
+                yNew = -0.04 * x + 0.85 * y + 1.6;
+                x = xNew;
+                y = yNew;
+              } else if (r < 94) {
+                xNew = 0.2 * x - 0.26 * y;
+                yNew = 0.23 * x + 0.22 * y + 1.6;
+                x = xNew;
+                y = yNew;
+              } else {
+                xNew = -0.15 * x + 0.28 * y;
+                yNew = 0.26 * x + 0.24 * y + 0.44;
+                x = xNew;
+                y = yNew;
+              }
+
+              if (x >= -2.1820 && x <= 2.6558 && y >= 0 && y <= 9.9983) {
+                let px = map(x, -2.1820, 2.6558, 0, width);
+                let py = map(y, 0, 9.9983, height, 0);
+                stroke("pink");
+                point(px, py);
+              }
+            }
+          }
         </script>
       </div>
     </main>
